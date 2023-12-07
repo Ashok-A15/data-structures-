@@ -1,0 +1,112 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+struct Student {
+    char Name[50];
+    int Reg_no;
+    int marks[3];
+    float average_marks;
+};
+
+// Function prototypes
+void readStudentInfo(Student* students, int N);
+void displayStudentInfo(Student* students, int N);
+void calculateAverageMarks(Student* students, int N);
+
+int main() {
+    int N, choice;
+
+    cout << "Enter the number of students: ";
+    cin >> N;
+
+    // Dynamically allocate memory for an array of N students
+    Student* students = new Student[N];
+
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Read student information\n";
+        cout << "2. Display student information\n";
+        cout << "3. Calculate average of best two test marks\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                readStudentInfo(students, N);
+                break;
+            case 2:
+                displayStudentInfo(students, N);
+                break;
+            case 3:
+                calculateAverageMarks(students, N);
+                break;
+            case 4:
+                cout << "Exiting program.\n";
+                break;
+            default:
+                cout << "Invalid choice. Please enter a valid option.\n";
+        }
+    } while (choice != 4);
+
+    // Deallocate dynamically allocated memory
+    delete[] students;
+
+    return 0;
+}
+
+void readStudentInfo(Student* students, int N) {
+    for (int i = 0; i < N; ++i) {
+        cout << "\nEnter information for student " << i + 1 << ":\n";
+        cout << "Name: ";
+        cin.ignore();  // Clear input buffer
+        cin.getline(students[i].Name, 50);
+        cout << "Registration Number: ";
+        cin >> students[i].Reg_no;
+        cout << "Marks in 3 tests:\n";
+        for (int j = 0; j < 3; ++j) {
+            cout << "Test " << j + 1 << ": ";
+            cin >> students[i].marks[j];
+        }
+    }
+}
+
+void displayStudentInfo(Student* students, int N) {
+    cout << "\nDisplaying student information:\n";
+    for (int i = 0; i < N; ++i) {
+        cout << "\nStudent " << i + 1 << ":\n";
+        cout << "Name: " << students[i].Name << "\n";
+        cout << "Registration Number: " << students[i].Reg_no << "\n";
+        cout << "Marks in 3 tests: ";
+        for (int j = 0; j < 3; ++j) {
+            cout << students[i].marks[j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+void calculateAverageMarks(Student* students, int N) {
+    for (int i = 0; i < N; ++i) {
+        // Sort the test marks in descending order
+        for (int j = 0; j < 2; ++j) {
+            for (int k = j + 1; k < 3; ++k) {
+                if (students[i].marks[j] < students[i].marks[k]) {
+                    // Swap marks if in the wrong order
+                    int temp = students[i].marks[j];
+                    students[i].marks[j] = students[i].marks[k];
+                    students[i].marks[k] = temp;
+                }
+            }
+        }
+        // Calculate average of best two test marks
+        students[i].average_marks = (students[i].marks[0] + students[i].marks[1]) / 2.0;
+    }
+
+    // Display the calculated averages
+    cout << "\nAverage of best two test marks for each student:\n";
+    for (int i = 0; i < N; ++i) {
+        cout << "Student " << i + 1 << ": " << fixed << setprecision(2) << students[i].average_marks << "\n";
+    }
+}
