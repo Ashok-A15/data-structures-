@@ -1,112 +1,108 @@
-#include <iostream>
-#include <iomanip>
+#include<stdio.h>
+#include<stdlib.h>
 
-using namespace std;
+int n=0;
 
-struct Student {
-    char Name[50];
-    int Reg_no;
+typedef struct Student
+{
+    int regno;
+    char name[30];
     int marks[3];
-    float average_marks;
-};
+    float average;
+}Student;
 
-// Function prototypes
-void readStudentInfo(Student* students, int N);
-void displayStudentInfo(Student* students, int N);
-void calculateAverageMarks(Student* students, int N);
-
-int main() {
-    int N, choice;
-
-    cout << "Enter the number of students: ";
-    cin >> N;
-
-    // Dynamically allocate memory for an array of N students
-    Student* students = new Student[N];
-
-    do {
-        cout << "\nMenu:\n";
-        cout << "1. Read student information\n";
-        cout << "2. Display student information\n";
-        cout << "3. Calculate average of best two test marks\n";
-        cout << "4. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice) {
-            case 1:
-                readStudentInfo(students, N);
-                break;
-            case 2:
-                displayStudentInfo(students, N);
-                break;
-            case 3:
-                calculateAverageMarks(students, N);
-                break;
-            case 4:
-                cout << "Exiting program.\n";
-                break;
-            default:
-                cout << "Invalid choice. Please enter a valid option.\n";
-        }
-    } while (choice != 4);
-
-    // Deallocate dynamically allocated memory
-    delete[] students;
-
-    return 0;
-}
-
-void readStudentInfo(Student* students, int N) {
-    for (int i = 0; i < N; ++i) {
-        cout << "\nEnter information for student " << i + 1 << ":\n";
-        cout << "Name: ";
-        cin.ignore();  // Clear input buffer
-        cin.getline(students[i].Name, 50);
-        cout << "Registration Number: ";
-        cin >> students[i].Reg_no;
-        cout << "Marks in 3 tests:\n";
-        for (int j = 0; j < 3; ++j) {
-            cout << "Test " << j + 1 << ": ";
-            cin >> students[i].marks[j];
+void read(Student *sp, int* size)
+{
+    int i,j;
+    printf("Enter the number of students : ");
+    scanf("%d",&n);
+    if(n>(*size))
+    {
+      printf("Insufficent space\n");
+      printf("Allocating memory Dynamically\n");
+      sp=(Student*)realloc(sp,n*sizeof(Student));
+      *size= n;
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("Enter the Reg no and Name of the student %d\n",i+1);
+        scanf("%d%s",&(sp+i)->regno,(sp+i)->name);
+        printf("enter the marks of the student in  three tests\n");
+        for(j=0;j<3;j++)
+        {
+            scanf("%d",&(sp[i].marks[j]));
         }
     }
 }
 
-void displayStudentInfo(Student* students, int N) {
-    cout << "\nDisplaying student information:\n";
-    for (int i = 0; i < N; ++i) {
-        cout << "\nStudent " << i + 1 << ":\n";
-        cout << "Name: " << students[i].Name << "\n";
-        cout << "Registration Number: " << students[i].Reg_no << "\n";
-        cout << "Marks in 3 tests: ";
-        for (int j = 0; j < 3; ++j) {
-            cout << students[i].marks[j] << " ";
+void disp(Student *sp)
+{
+    int i,j;
+    if(n==0)
+    {
+        printf("list empty\n");
+        return;
+    }
+    printf("Regno\tName\t\tTest 1\t\tTest 2\t\tTest 3\t\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d\t%s\t",sp[i].regno,sp[i].name);
+        for(j=0;j<3;j++)
+        {
+          printf("\t%d\t",sp[i].marks[j]);
         }
-        cout << "\n";
+    printf("\n");
     }
 }
 
-void calculateAverageMarks(Student* students, int N) {
-    for (int i = 0; i < N; ++i) {
-        // Sort the test marks in descending order
-        for (int j = 0; j < 2; ++j) {
-            for (int k = j + 1; k < 3; ++k) {
-                if (students[i].marks[j] < students[i].marks[k]) {
-                    // Swap marks if in the wrong order
-                    int temp = students[i].marks[j];
-                    students[i].marks[j] = students[i].marks[k];
-                    students[i].marks[k] = temp;
-                }
-            }
-        }
-        // Calculate average of best two test marks
-        students[i].average_marks = (students[i].marks[0] + students[i].marks[1]) / 2.0;
+void average(Student *sp)
+{
+    int i,j;
+    if(n==0)
+    {
+        printf("list empty\n");
+        return;
     }
+    for(i=0;i<n;i++)
+    {
+        int sum=(sp+i)->marks[0],min=sp[i].marks[0];
+        for(j=1;j<3;j++)
+        {
+            sum+=sp[i].marks[j];
+            if(sp[i].marks[j]<min) min=sp[i].marks[j];
+        }
+        printf("Sum %d min %d\n",sum,min);
+        (sp+i)->average=(sum-min)/2.0;
+        printf("Average of best of the two subject marks of student %d is %lf\n",i+1,(sp+i)->average);
+    }
+}
 
-    // Display the calculated averages
-    cout << "\nAverage of best two test marks for each student:\n";
-    for (int i = 0; i < N; ++i) {
-        cout << "Student " << i + 1 << ": " << fixed << setprecision(2) << students[i].average_marks << "\n";
+void main()
+{
+    Student *sp=NULL;
+   int size;
+    printf("Enter the size : ");
+    scanf("%d",&size);
+    sp=(Student*)malloc(size*sizeof(Student));
+    int ch;
+    while(1)
+    {
+        
+        printf("1.Read\n2.Dislay\n3.Average\n4.Exit\nEnter choice : ");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1: read(sp, &size);
+                    break;
+            case 2: disp(sp);
+                    break;
+            case 3: average(sp);
+                    break;
+            case 4: free(sp);
+                     sp=NULL;
+                     exit(0);
+            default: printf("Invalid Input\n");     
+        }
+    
     }
 }
