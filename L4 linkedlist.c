@@ -184,7 +184,6 @@ node *searchByKey(node *head, int key)
         return head;
     }
 }
-
 node* orderedList(node* head, int* size, int data){
     node* current=head;
     node* index=NULL;
