@@ -13,36 +13,7 @@ struct student{
 void read(struct student *);
 void disp(struct student *);
 void avg(struct student *);
-//Main Function
-void main()
-{
-    //Declaring Pointer to Student Structure
-    struct student *st;
-    printf("Enter the size:");
-    scanf("%d",&size);
-    //Dynamically Allocating Memory for array of Structures
-    st = (struct student *) malloc(size*sizeof(struct student));
-    int choice;
-    for(;;)
-    {
-        printf("Enter Your Choice:\n");
-        printf("1.Input\n2.Display\n3.Average\n4.Exit\n");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-            case 1 : read(st);
-                     break;
-            case 2 : disp(st);
-                     break;
-            case 3 : avg(st);
-                     break;
-            case 4 : printf("!!THANK YOU!!\n");
-                     exit(0);
-            default : printf("Invalid Choice\n!!Thank You!!\n");
-                      free(st); st=NULL;             
-        }
-    }
-}
+
 //Function to read Student Details
 void read(struct student *st)
 {
@@ -123,5 +94,35 @@ void avg(struct student *st)
         }
         printf("%.2f",(st+i)->avg);
         printf("\n");
+    }
+}
+//Main Function
+void main()
+{
+    //Declaring Pointer to Student Structure
+    struct student *st;
+    printf("Enter the size:");
+    scanf("%d",&size);
+    //Dynamically Allocating Memory for array of Structures
+    st = (struct student *) malloc(size*sizeof(struct student));
+    int choice;
+    for(;;)
+    {
+        printf("Enter Your Choice:\n");
+        printf("1.Input\n2.Display\n3.Average\n4.Exit\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1 : read(st);
+                     break;
+            case 2 : disp(st);
+                     break;
+            case 3 : avg(st);
+                     break;
+            case 4 : printf("!!THANK YOU!!\n");
+                     exit(0);
+            default : printf("Invalid Choice\n!!Thank You!!\n");
+                      free(st); st=NULL;             
+        }
     }
 }
