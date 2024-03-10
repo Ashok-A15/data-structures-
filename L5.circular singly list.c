@@ -70,7 +70,6 @@ void displayList(struct Head* head) {
     }
     printf("(head)\n");
 }
-
 // Function to insert a node at the front
 void insertFront(struct Head* head, int data) {
     struct Node* newNode = createNode(data);
