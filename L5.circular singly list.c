@@ -218,7 +218,7 @@ void deleteAtPosition(struct Head* head, int position) {
     }
 }
 
-// Function to delete a node by key
+// Function to delete a node by key 
 void deleteByKey(struct Head* head, int key) {
     if (head->size == 0) {
         printf("List is empty.\n");
