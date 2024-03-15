@@ -2,7 +2,6 @@
 #include<stdlib.h>
 
 int n=0;
-
 typedef struct Student
 {
     int regno;
