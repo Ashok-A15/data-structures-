@@ -98,10 +98,10 @@ case 1:
         root = insert(root, key);
         break;
 case 2:
-printf("Inorder Traversal: ");
-inorderTraversal(root);
-printf("\n");
-break;
+        printf("Inorder Traversal: ");
+        inorderTraversal(root);
+        printf("\n");
+        break;
 case 3:
 printf("Preorder Traversal: ");
 preorderTraversal(root);
