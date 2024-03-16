@@ -133,24 +133,24 @@ case 4:
         printf("\n");
         break;
 case 5:
-printf("Enter key to search and display: ");
-scanf("%d", &key);
-displayNodeInfo(searchNode(root, key));
-break;
+        printf("Enter key to search and display: ");
+        scanf("%d", &key);
+        displayNodeInfo(searchNode(root, key));
+        break;
 case 6:
-printf("Total nodes in the tree: %d\n", countNodes(root));
-break;
+        printf("Total nodes in the tree: %d\n", countNodes(root));
+        break;
 case 7:
-printf("Height of the tree: %d\n", findHeight(root));
-break;
+        printf("Height of the tree: %d\n", findHeight(root));
+        break;
 case 8:
-displayMaxNodeInfo(findMaxNode(root));
-break;
+        displayMaxNodeInfo(findMaxNode(root));
+        break;
 case 9:
-printf("Exiting program.\n");
-break;
+        printf("Exiting program.\n");
+        break;
 default:
-printf("Invalid choice. Please enter a valid option.\n");
+        printf("Invalid choice. Please enter a valid option.\n");
 }
 } while (choice != 9);
 return 0;
