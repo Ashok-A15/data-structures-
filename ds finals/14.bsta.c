@@ -113,15 +113,15 @@ menu();
 scanf("%d", &choice);
 switch (choice) {
 case 1:
-printf("Enter key to insert: ");
-scanf("%d", &key);
-root = insert(root, key);
-break;
+        printf("Enter key to insert: ");
+        scanf("%d", &key);
+        root = insert(root, key);
+        break;
 case 2:
-printf("Inorder Traversal: ");
-inorderTraversal(root);
-printf("\n");
-break;
+        printf("Inorder Traversal: ");
+        inorderTraversal(root);
+        printf("\n");
+        break;
 case 3:
 printf("Preorder Traversal: ");
 preorderTraversal(root);
