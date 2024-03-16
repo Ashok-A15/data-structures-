@@ -103,8 +103,8 @@ case 2:
         printf("\n");
         break;
 case 3:
-printf("Preorder Traversal: ");
-preorderTraversal(root);
+        printf("Preorder Traversal: ");
+        preorderTraversal(root);
 printf("\n");
 break;
 case 4:
