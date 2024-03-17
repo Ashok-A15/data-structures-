@@ -71,8 +71,8 @@ free(root);
 return temp;
 }
 struct Node* temp = minValueNode(root->right);
-root->key = temp->key;
-root->right = deleteNode(root->right, temp->key);
+        root->key = temp->key;
+        root->right = deleteNode(root->right, temp->key);
 }
 return root;
 }
