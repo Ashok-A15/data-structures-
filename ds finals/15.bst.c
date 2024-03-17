@@ -105,13 +105,13 @@ case 2:
 case 3:
         printf("Preorder Traversal: ");
         preorderTraversal(root);
-printf("\n");
-break;
+        printf("\n");
+        break;
 case 4:
-printf("Postorder Traversal: ");
-postorderTraversal(root);
-printf("\n");
-break;
+        printf("Postorder Traversal: ");
+        postorderTraversal(root);
+        printf("\n");
+        break;
 case 5:
 printf("Enter key to search and delete: ");
 scanf("%d", &key);
