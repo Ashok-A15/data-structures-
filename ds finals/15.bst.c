@@ -77,20 +77,20 @@ root->right = deleteNode(root->right, temp->key);
 return root;
 }
 void menu() {
-printf("\n1. Insert a node");
-printf("\n2. Inorder Traversal");
-printf("\n3. Preorder Traversal");
-printf("\n4. Postorder Traversal");
-printf("\n5. Search and Delete a node by key");
-printf("\n6. Exit");
-printf("\nEnter your choice: ");
+        printf("\n1. Insert a node");
+        printf("\n2. Inorder Traversal");
+        printf("\n3. Preorder Traversal");
+        printf("\n4. Postorder Traversal");
+        printf("\n5. Search and Delete a node by key");
+        printf("\n6. Exit");
+        printf("\nEnter your choice: ");
 }
 int main() {
-struct Node* root = NULL;
+        struct Node* root = NULL;
 int choice, key;
-do {
-menu();
-scanf("%d", &choice);
+        do {
+        menu();
+        scanf("%d", &choice);
 switch (choice) {
 case 1:
         printf("Enter key to insert: ");
