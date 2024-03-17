@@ -113,20 +113,20 @@ case 4:
         printf("\n");
         break;
 case 5:
-printf("Enter key to search and delete: ");
-scanf("%d", &key);
-if (searchNode(root, key) != NULL) {
-root = deleteNode(root, key);
-printf("Node with key %d deleted successfully.\n", key);
-} else {
-printf("Node with key %d not found.\n", key);
+        printf("Enter key to search and delete: ");
+        scanf("%d", &key);
+        if (searchNode(root, key) != NULL) {
+        root = deleteNode(root, key);
+        printf("Node with key %d deleted successfully.\n", key);
+        } else {
+        printf("Node with key %d not found.\n", key);
 }
 break;
 case 6:
-printf("Exiting program.\n");
-break;
+        printf("Exiting program.\n");
+        break;
 default:
-printf("Invalid choice. Please enter a valid option.\n");
+        printf("Invalid choice. Please enter a valid option.\n");
 }
 } while (choice != 6);
 return 0;
