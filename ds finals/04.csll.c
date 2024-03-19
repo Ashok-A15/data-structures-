@@ -124,18 +124,18 @@ printf("Key not found.\n");
 return head;
 }
 int main() {
-struct Node *head = NULL;
-int choice, item, position, key, result;
+        struct Node *head = NULL;
+        int choice, item, position, key, result;
 do {
-printf("\nMenu:\n");
-printf("1. Insert by order\n");
-printf("2. Delete by position\n");
-printf("3. Search for an item by key\n");
-printf("4. Delete by key\n");
-printf("5. Display the list contents\n");
-printf("6. Exit\n");
-printf("Enter your choice: ");
-scanf("%d", &choice);
+        printf("\nMenu:\n");
+        printf("1. Insert by order\n");
+        printf("2. Delete by position\n");
+        printf("3. Search for an item by key\n");
+        printf("4. Delete by key\n");
+        printf("5. Display the list contents\n");
+        printf("6. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 switch (choice) {
 case 1:
         printf("Enter item to insert: ");
@@ -156,21 +156,21 @@ case 3:
         if (result != -1) {
         printf("Key %d found at position %d.\n", key, result);
 }
-break;
+        break;
 case 4:
-printf("Enter key to delete: ");
-scanf("%d", &key);
-head = deleteByKey(head, key);
-displayList(head);
-break;
+        printf("Enter key to delete: ");
+        scanf("%d", &key);
+        head = deleteByKey(head, key);
+        displayList(head);
+        break;
 case 5:
-displayList(head);
-break;
+        displayList(head);
+        break;
 case 6:
-printf("Exiting program.\n");
-break;
+        printf("Exiting program.\n");
+        break;
 default:
-printf("Invalid choice. Please enter a valid option.\n");
+        printf("Invalid choice. Please enter a valid option.\n");
 }
 } while (choice != 6);
 // Free the memory allocated for the circular linked list before exiting
