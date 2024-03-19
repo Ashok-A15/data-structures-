@@ -19,24 +19,24 @@ do {
          printf("\n");
 }
 // Function to insert a node in order
-struct Node* insertByOrder(struct Node *head, int item) {
-struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->data = item;
-if (head == NULL) {
-newNode->next = newNode;
-return newNode;
+        struct Node* insertByOrder(struct Node *head, int item) {
+        struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = item;
+        if (head == NULL) {
+        newNode->next = newNode;
+        return newNode;
 }
-struct Node *current = head;
+        struct Node *current = head;
 // Traverse the list to find the correct position to insert
-while (current->next != head && current->next->data < item) {
-current = current->next;
+        while (current->next != head && current->next->data < item) {
+        current = current->next;
 }
 // Insert the new node
-newNode->next = current->next;
-current->next = newNode;
+        newNode->next = current->next;
+        current->next = newNode;
 // Update head if needed
-if (item < head->data) {
-head = newNode;
+        if (item < head->data) {
+        head = newNode;
 }
 return head;
 }
@@ -138,23 +138,23 @@ printf("Enter your choice: ");
 scanf("%d", &choice);
 switch (choice) {
 case 1:
-printf("Enter item to insert: ");
-scanf("%d", &item);
-head = insertByOrder(head, item);
-displayList(head);
-break;
+        printf("Enter item to insert: ");
+        scanf("%d", &item);
+        head = insertByOrder(head, item);
+        displayList(head);
+        break;
 case 2:
-printf("Enter position to delete: ");
-scanf("%d", &position);
-head = deleteByPosition(head, position);
-displayList(head);
-break;
+        printf("Enter position to delete: ");
+        scanf("%d", &position);
+        head = deleteByPosition(head, position);
+        displayList(head);
+        break;
 case 3:
-printf("Enter key to search: ");
-scanf("%d", &key);
-result = searchByKey(head, key);
-if (result != -1) {
-printf("Key %d found at position %d.\n", key, result);
+        printf("Enter key to search: ");
+        scanf("%d", &key);
+        result = searchByKey(head, key);
+        if (result != -1) {
+        printf("Key %d found at position %d.\n", key, result);
 }
 break;
 case 4:
