@@ -7,16 +7,16 @@ struct Node *next;
 };
 // Function to display the circular linked list
 void displayList(struct Node *head) {
-if (head == NULL) {
-printf("List is empty.\n");
-return;
+        if (head == NULL) {
+        printf("List is empty.\n");
+        return;
 }
-struct Node *current = head;
+        struct Node *current = head;
 do {
-printf("%d ", current->data);
-current = current->next;
-} while (current != head);
-printf("\n");
+        printf("%d ", current->data);
+        current = current->next;
+}       while (current != head);
+         printf("\n");
 }
 // Function to insert a node in order
 struct Node* insertByOrder(struct Node *head, int item) {
