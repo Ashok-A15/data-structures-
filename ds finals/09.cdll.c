@@ -62,71 +62,71 @@ void deleteRear(struct Node** head) {
 }
 // Function to delete the front node
 void deleteFront(struct Node** head) {
-if (*head == NULL) {
-printf("List is empty. Deletion not possible.\n");
-return;
+        if (*head == NULL) {
+        printf("List is empty. Deletion not possible.\n");
+        return;
 }
-struct Node* temp = *head;
-if ((*head)->next == *head) {
-free(*head);
-*head = NULL;
+        struct Node* temp = *head;
+        if ((*head)->next == *head) {
+        free(*head);
+        *head = NULL;
 } else {
-*head = (*head)->next;
-(*head)->prev = temp->prev;
-temp->prev->next = *head;
-free(temp);
+        *head = (*head)->next;
+        (*head)->prev = temp->prev;
+        temp->prev->next = *head;
+        free(temp);
 }
-printf("Deleted front node\n");
+        printf("Deleted front node\n");
 }
 // Function to search for an item by position
 void searchByPosition(struct Node* head, int position) {
-if (head == NULL) {
-printf("List is empty. Search not possible.\n");
-return;
+        if (head == NULL) {
+        printf("List is empty. Search not possible.\n");
+        return;
 }
-struct Node* current = head;
-int currentPosition = 1;
-int found = 0;
+        struct Node* current = head;
+        int currentPosition = 1;
+        int found = 0;
 // Traverse the list to find the item at the specified position
 do {
-if (currentPosition == position) {
-printf("Item at position %d: %d\n", position, current->data);
-found = 1;
+        if (currentPosition == position) {
+        printf("Item at position %d: %d\n", position, current->data);
+        found = 1;
 break;
 }
-current = current->next;
-currentPosition++;
+        current = current->next;
+        currentPosition++;
 } while (current != head);
-if (!found) {
-printf("Item not found at position %d\n", position);
+        if (!found) {
+        printf("Item not found at position %d\n", position);
 }
 }
 // Function to display the contents of the circular doubly linked list
 void displayList(struct Node* head) {
-if (head == NULL) {
-printf("List is empty.\n");
-return;
+        if (head == NULL) {
+        printf("List is empty.\n");
+        return;
 }
-struct Node* current = head;
+        struct Node* current = head;
 // Traverse and print each node's data
 do {
-printf("%d ", current->data);
-current = current->next;
+        printf("%d ", current->data);
+        current = current->next;
 } while (current != head);
-printf("\n");
+        printf("\n");
 }
 int main() {
-struct Node* head = NULL;
-int choice, data, position;
+        struct Node* head = NULL;
+        int choice, data, position;
 do {
-printf("\n1. Insert by order");
-printf("\n2. Delete Rear");
-printf("\n3. Delete Front");
-printf("\n4. Search for an item by position");
-printf("\n5. Display list");
-printf("\n6. Exit");
-printf("\nEnter your choice: ");
-scanf("%d", &choice);
+        printf("\n1. Insert by order");
+        printf("\n2. Delete Rear");
+        printf("\n3. Delete Front");
+        printf("\n4. Search for an item by position");
+        printf("\n5. Display list");
+        printf("\n6. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
 switch (choice) {
 case 1:
 printf("Enter data to insert: ");
