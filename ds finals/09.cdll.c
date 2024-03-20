@@ -17,31 +17,31 @@ return newNode;
 // Function to insert a node in order
 void insertByOrder(struct Node** head, int data) {
         struct Node* newNode = createNode(data);
-if (*head == NULL) {
-*head = newNode;
-(*head)->next = *head;
-(*head)->prev = *head;
-printf("Inserted %d\n", data);
-return;
+        if (*head == NULL) {
+        *head = newNode;
+        (*head)->next = *head;
+        (*head)->prev = *head;
+        printf("Inserted %d\n", data);
+        return;
 }
-if (data < (*head)->data) {
-newNode->next = *head;
-newNode->prev = (*head)->prev;
-(*head)->prev->next = newNode;
-(*head)->prev = newNode;
-*head = newNode;
-printf("Inserted %d\n", data);
-return;
+        if (data < (*head)->data) {
+        newNode->next = *head;
+        newNode->prev = (*head)->prev;
+        (*head)->prev->next = newNode;
+        (*head)->prev = newNode;
+        *head = newNode;
+        printf("Inserted %d\n", data);
+        return;
 }
-struct Node* current = (*head)->next;
-while (current != *head && current->data < data) {
-current = current->next;
+        struct Node* current = (*head)->next;
+        while (current != *head && current->data < data) {
+        current = current->next;
 }
-newNode->next = current;
-newNode->prev = current->prev;
-current->prev->next = newNode;
-current->prev = newNode;
-printf("Inserted %d\n", data);
+        newNode->next = current;
+        newNode->prev = current->prev;
+        current->prev->next = newNode;
+        current->prev = newNode;
+        printf("Inserted %d\n", data);
 }
 // Function to delete the rear node
 void deleteRear(struct Node** head) {
