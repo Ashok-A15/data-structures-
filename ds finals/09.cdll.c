@@ -16,7 +16,7 @@ return newNode;
 }
 // Function to insert a node in order
 void insertByOrder(struct Node** head, int data) {
-struct Node* newNode = createNode(data);
+        struct Node* newNode = createNode(data);
 if (*head == NULL) {
 *head = newNode;
 (*head)->next = *head;
