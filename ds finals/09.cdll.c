@@ -129,32 +129,32 @@ do {
         scanf("%d", &choice);
 switch (choice) {
 case 1:
-printf("Enter data to insert: ");
-scanf("%d", &data);
-insertByOrder(&head, data);
-displayList(head);
-break;
+        printf("Enter data to insert: ");
+        scanf("%d", &data);
+        insertByOrder(&head, data);
+        displayList(head);
+        break;
 case 2:
-deleteRear(&head);
-displayList(head);
-break;
+        deleteRear(&head);
+        displayList(head);
+        break;
 case 3:
-deleteFront(&head);
-displayList(head);
-break;
+        deleteFront(&head);
+        displayList(head);
+        break;
 case 4:
-printf("Enter position to search: ");
-scanf("%d", &position);
-searchByPosition(head, position);
-break;
+        printf("Enter position to search: ");
+        scanf("%d", &position);
+        searchByPosition(head, position);
+        break;
 case 5:
-displayList(head);
-break;
+        displayList(head);
+        break;
 case 6:
-printf("Exiting program.\n");
-break;
+        printf("Exiting program.\n");
+        break;
 default:
-printf("Invalid choice. Please enter a valid option.\n");
+        printf("Invalid choice. Please enter a valid option.\n");
 }
 } while (choice != 6);
 return 0;
