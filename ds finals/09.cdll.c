@@ -45,20 +45,20 @@ void insertByOrder(struct Node** head, int data) {
 }
 // Function to delete the rear node
 void deleteRear(struct Node** head) {
-if (*head == NULL) {
-printf("List is empty. Deletion not possible.\n");
-return;
+        if (*head == NULL) {
+        printf("List is empty. Deletion not possible.\n");
+        return;
 }
-struct Node* last = (*head)->prev;
-if (*head == last) {
-free(*head);
-*head = NULL;
+        struct Node* last = (*head)->prev;
+        if (*head == last) {
+        free(*head);
+        *head = NULL;
 } else {
-last->prev->next = *head;
-(*head)->prev = last->prev;
-free(last);
+        last->prev->next = *head;
+        (*head)->prev = last->prev;
+        free(last);
 }
-printf("Deleted rear node\n");
+        printf("Deleted rear node\n");
 }
 // Function to delete the front node
 void deleteFront(struct Node** head) {
