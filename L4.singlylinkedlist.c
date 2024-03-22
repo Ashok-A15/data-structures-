@@ -22,6 +22,7 @@ node* display(node *head, int size)
     {
         printf("%d->", temp->data);
         temp = temp->next;
+        
     }
     return head;
 }
