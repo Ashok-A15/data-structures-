@@ -1,7 +1,3 @@
-/*Implement circular single linked list to perform the following operations
-i) Insert front ii) Insert rear iii) Delete a node with the given key iv) Search for an item
-byposition
-Display the list contents after each operation*/
 #include <stdio.h>
 #include <stdlib.h>
 // Node structure
