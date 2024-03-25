@@ -45,7 +45,7 @@ void postorderTraversal(struct Node* root) {
         printf("%d ", root->key);
 }
 }
-        struct Node* searchNode(struct Node* root, int key) {
+struct Node* searchNode(struct Node* root, int key) {
         if (root == NULL || root->key == key)
         return root;
         if (key < root->key)
