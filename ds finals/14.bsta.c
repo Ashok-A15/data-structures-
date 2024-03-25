@@ -53,33 +53,33 @@ void postorderTraversal(struct Node* root) {
         return searchNode(root->right, key);
 }
 void displayNodeInfo(struct Node* node) {
-if (node != NULL) {
-printf("Node with key %d found.\n", node->key);
-if (node->parent != NULL) {
-printf("Parent: %d\n", node->parent->key);
+        if (node != NULL) {
+        printf("Node with key %d found.\n", node->key);
+        if (node->parent != NULL) {
+        printf("Parent: %d\n", node->parent->key);
 } else {
-printf("No parent (root node).\n");
+        printf("No parent (root node).\n");
 }
 } else {
-printf("Node not found.\n");
+        printf("Node not found.\n");
 }
 }
-int countNodes(struct Node* root) {
-if (root == NULL)
-return 0;
-return 1 + countNodes(root->left) + countNodes(root->right);
+        int countNodes(struct Node* root) {
+        if (root == NULL)
+        return 0;
+        return 1 + countNodes(root->left) + countNodes(root->right);
 }
 int findHeight(struct Node* root) {
-if (root == NULL)
-return -1;
-int leftHeight = findHeight(root->left);
-int rightHeight = findHeight(root->right);
-return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
+        if (root == NULL)
+        return -1;
+        int leftHeight = findHeight(root->left);
+        int rightHeight = findHeight(root->right);
+        return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
 }
-struct Node* findMaxNode(struct Node* root) {
-if (root == NULL || root->right == NULL)
-return root;
-return findMaxNode(root->right);
+        struct Node* findMaxNode(struct Node* root) {
+        if (root == NULL || root->right == NULL)
+        return root;
+        return findMaxNode(root->right);
 }
 void displayMaxNodeInfo(struct Node* maxNode) {
 if (maxNode != NULL) {
