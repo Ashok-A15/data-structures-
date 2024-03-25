@@ -5,24 +5,24 @@ int key;
 struct Node *left, *right, *parent;
 };
 struct Node* createNode(int key) {
-struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->key = key;
-newNode->left = newNode->right = newNode->parent = NULL;
-return newNode;
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->key = key;
+        newNode->left = newNode->right = newNode->parent = NULL;
+        return newNode;
 }
 struct Node* insert(struct Node* root, int key) {
-if (root == NULL)
-return createNode(key);
-if (key < root->key) {
-struct Node* leftChild = insert(root->left, key);
-root->left = leftChild;
-leftChild->parent = root;
+        if (root == NULL)
+        return createNode(key);
+        if (key < root->key) {
+        struct Node* leftChild = insert(root->left, key);
+        root->left = leftChild;
+        leftChild->parent = root;
 } else if (key > root->key) {
-struct Node* rightChild = insert(root->right, key);
-root->right = rightChild;
-rightChild->parent = root;
+        struct Node* rightChild = insert(root->right, key);
+        root->right = rightChild;
+        rightChild->parent = root;
 }
-return root;
+        return root;
 }
 void inorderTraversal(struct Node* root) {
         if (root != NULL) {
