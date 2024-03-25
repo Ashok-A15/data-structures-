@@ -25,32 +25,32 @@ rightChild->parent = root;
 return root;
 }
 void inorderTraversal(struct Node* root) {
-if (root != NULL) {
-inorderTraversal(root->left);
-printf("%d ", root->key);
-inorderTraversal(root->right);
+        if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->key);
+        inorderTraversal(root->right);
 }
 }
 void preorderTraversal(struct Node* root) {
-if (root != NULL) {
-printf("%d ", root->key);
-preorderTraversal(root->left);
-preorderTraversal(root->right);
+        if (root != NULL) {
+        printf("%d ", root->key);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
 }
 }
 void postorderTraversal(struct Node* root) {
-if (root != NULL) {
-postorderTraversal(root->left);
-postorderTraversal(root->right);
-printf("%d ", root->key);
+        if (root != NULL) {
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        printf("%d ", root->key);
 }
 }
-struct Node* searchNode(struct Node* root, int key) {
-if (root == NULL || root->key == key)
-return root;
-if (key < root->key)
-return searchNode(root->left, key);
-return searchNode(root->right, key);
+        struct Node* searchNode(struct Node* root, int key) {
+        if (root == NULL || root->key == key)
+        return root;
+        if (key < root->key)
+        return searchNode(root->left, key);
+        return searchNode(root->right, key);
 }
 void displayNodeInfo(struct Node* node) {
 if (node != NULL) {
