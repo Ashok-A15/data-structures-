@@ -49,74 +49,74 @@ void deleteRear(struct Node** head) {
       temp = temp->next;
 }
 // If there is only one node in the list
-if (temp == *head) {
-free(temp);
-*head = NULL;
+      if (temp == *head) {
+      free(temp);
+      *head = NULL;
 } else {
-prev->next = temp->next;
-free(temp);
+      prev->next = temp->next;
+      free(temp);
 }
-printf("Deleted rear node\n");
+      printf("Deleted rear node\n");
 }
 // Function to delete the front node
 void deleteFront(struct Node** head) {
-if (*head == NULL) {
-printf("List is empty. Deletion not possible.\n");
+      if (*head == NULL) {
+      printf("List is empty. Deletion not possible.\n");
 return;
 }
-struct Node* temp = *head;
-struct Node* last = *head;
+      struct Node* temp = *head;
+      struct Node* last = *head;
 // Traverse to the rear node
-while (last->next != *head) {
-last = last->next;
+      while (last->next != *head) {
+      last = last->next;
 }
 // If there is only one node in the list
-if (temp == last) {
-free(temp);
-*head = NULL;
+      if (temp == last) {
+      free(temp);
+      *head = NULL;
 } else {
-*head = temp->next;
-last->next = *head;
-free(temp);
+      *head = temp->next;
+      last->next = *head;
+      free(temp);
 }
 printf("Deleted front node\n");
 }
 // Function to search for an item by value
 void searchByValue(struct Node* head, int value) {
-if (head == NULL) {
-printf("List is empty. Search not possible.\n");
+      if (head == NULL) {
+      printf("List is empty. Search not possible.\n");
 return;
 }
-struct Node* temp = head;
-int position = 1;
-int found = 0;
+      struct Node* temp = head;
+      int position = 1;
+      int found = 0;
 // Traverse the list to find the item
 do {
-if (temp->data == value) {
-printf("Item %d found at position %d\n", value, position);
-found = 1;
-break;
+      if (temp->data == value) {
+      printf("Item %d found at position %d\n", value, position);
+      found = 1;
+      break;
 }
-temp = temp->next;
-position++;
+      temp = temp->next;
+      position++;
 } while (temp != head);
-if (!found) {
-printf("Item %d not found in the list\n", value);
+      if (!found) {
+      printf("Item %d not found in the list\n", value);
 }
 }
 // Function to display the contents of the circular linked list
 void displayList(struct Node* head) {
-if (head == NULL) {
-printf("List is empty.\n");
-return;
+      if (head == NULL) {
+      printf("List is empty.\n");
+      return;
 }
-struct Node* temp = head;
+      struct Node* temp = head;
 // Traverse and print each node's data
 do {
-printf("%d ", temp->data);
-temp = temp->next;
+      printf("%d ", temp->data);
+      temp = temp->next;
 } while (temp != head);
-printf("\n");
+      printf("\n");
 }
 int main() {
 struct Node* head = NULL;
