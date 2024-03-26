@@ -96,8 +96,8 @@ do {
       printf("Key not found.\n");
 return head;
 }
-      // Function to search for an item by position
-      int searchByPosition(struct Node *head, int position) {
+ // Function to search for an item by position
+ int searchByPosition(struct Node *head, int position) {
       if (head == NULL) {
       printf("List is empty.\n");
       return -1;
