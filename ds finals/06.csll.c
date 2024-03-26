@@ -20,7 +20,7 @@ printf("\n");
 }
 // Function to insert a node at the front
 struct Node* insertFront(struct Node *head, int item) {
-struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+        struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
 newNode->data = item;
 if (head == NULL) {
 newNode->next = newNode;
