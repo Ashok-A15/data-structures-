@@ -21,34 +21,34 @@ printf("\n");
 // Function to insert a node at the front
 struct Node* insertFront(struct Node *head, int item) {
         struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->data = item;
-if (head == NULL) {
-newNode->next = newNode;
-return newNode;
+        newNode->data = item;
+        if (head == NULL) {
+        newNode->next = newNode;
+        return newNode;
 }
-struct Node *last = head;
-while (last->next != head) {
-last = last->next;
+        struct Node *last = head;
+        while (last->next != head) {
+        last = last->next;
 }
-newNode->next = head;
-last->next = newNode;
-return newNode;
+        newNode->next = head;
+        last->next = newNode;
+        return newNode;
 }
 // Function to insert a node at the rear
 struct Node* insertRear(struct Node *head, int item) {
-struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->data = item;
-if (head == NULL) {
-newNode->next = newNode;
-return newNode;
+      struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+      newNode->data = item;
+      if (head == NULL) {
+      newNode->next = newNode;
+      return newNode;
 }
-struct Node *last = head;
-while (last->next != head) {
-last = last->next;
+      struct Node *last = head;
+      while (last->next != head) {
+      last = last->next;
 }
-newNode->next = head;
-last->next = newNode;
-return head;
+      newNode->next = head;
+      last->next = newNode;
+      return head;
 }
 // Function to delete a node with the given key
 struct Node* deleteByKey(struct Node *head, int key) {
