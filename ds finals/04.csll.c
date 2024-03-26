@@ -42,15 +42,15 @@ return head;
 }
 // Function to delete a node by position
 struct Node* deleteByPosition(struct Node *head, int position) {
-if (head == NULL) {
-printf("List is empty.\n");
-return NULL;
+        if (head == NULL) {
+        printf("List is empty.\n");
+        return NULL;
 }
 struct Node *current = head, *prev = NULL;
 // Traverse to the specified position
 for (int i = 0; i < position; i++) {
-prev = current;
-current = current->next;
+        prev = current;
+        current = current->next;
 // Check if the position is valid
 if (current == head) {
 printf("Invalid position.\n");
@@ -69,20 +69,20 @@ return head;
 }
 // Function to search for an item by key
 int searchByKey(struct Node *head, int key) {
-if (head == NULL) {
-printf("List is empty.\n");
-return -1;
+        if (head == NULL) {
+        printf("List is empty.\n");
+        return -1;
 }
-struct Node *current = head;
-int position = 0;
+        struct Node *current = head;
+        int position = 0;
 do {
-if (current->data == key) {
+        if (current->data == key) {
 return position;
 }
-current = current->next;
-position++;
+        current = current->next;
+        position++;
 } while (current != head);
-return -1; // Key not found
+        return -1; // Key not found
 }
 // Function to delete a node by key
 // Function to delete a node by key
