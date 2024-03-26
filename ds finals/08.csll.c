@@ -7,46 +7,46 @@ struct Node* next;
 };
 // Function to create a new node
 struct Node* createNode(int data) {
-struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->data = data;
-newNode->next = NULL;
-return newNode;
+      struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+      newNode->data = data;
+      newNode->next = NULL;
+      return newNode;
 }
 // Function to insert a node at a given position
 void insertByPosition(struct Node** head, int data, int position) {
-struct Node* newNode = createNode(data);
-if (*head == NULL) {
-*head = newNode;
-newNode->next = *head;
-printf("Inserted %d at position %d\n", data, position);
+      struct Node* newNode = createNode(data);
+      if (*head == NULL) {
+      *head = newNode;
+      newNode->next = *head;
+      printf("Inserted %d at position %d\n", data, position);
 return;
 }
-struct Node* temp = *head;
+      struct Node* temp = *head;
 // Traverse to the node just before the desired position
-for (int i = 1; i < position - 1; ++i) {
-temp = temp->next;
-if (temp == *head) {
-printf("Invalid position. Insertion not possible.\n");
+      for (int i = 1; i < position - 1; ++i) {
+      temp = temp->next;
+      if (temp == *head) {
+      printf("Invalid position. Insertion not possible.\n");
 return;
 }
 }
 // Insert the new node
-newNode->next = temp->next;
-temp->next = newNode;
-printf("Inserted %d at position %d\n", data, position);
+      newNode->next = temp->next;
+      temp->next = newNode;
+      printf("Inserted %d at position %d\n", data, position);
 }
 // Function to delete the rear node
 void deleteRear(struct Node** head) {
-if (*head == NULL) {
-printf("List is empty. Deletion not possible.\n");
-return;
+      if (*head == NULL) {
+      printf("List is empty. Deletion not possible.\n");
+      return;
 }
-struct Node* temp = *head;
-struct Node* prev = NULL;
+      struct Node* temp = *head;
+      struct Node* prev = NULL;
 // Traverse to the rear node
-while (temp->next != *head) {
-prev = temp;
-temp = temp->next;
+      while (temp->next != *head) {
+      prev = temp;
+      temp = temp->next;
 }
 // If there is only one node in the list
 if (temp == *head) {
