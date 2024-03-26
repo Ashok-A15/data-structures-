@@ -87,40 +87,40 @@ return position;
 // Function to delete a node by key
 // Function to delete a node by key
 struct Node* deleteByKey(struct Node *head, int key) {
-if (head == NULL) {
-printf("List is empty.\n");
-return NULL;
+        if (head == NULL) {
+        printf("List is empty.\n");
+        return NULL;
 }
 struct Node *current = head, *prev = NULL;
 // Search for the key
 do {
-if (current->data == key) {
+        if (current->data == key) {
 // Update pointers to remove the node
-if (prev == NULL) {
+        if (prev == NULL) {
 // Deleting the head node
-if (current->next == head) {
+        if (current->next == head) {
 // Only one node in the list
-free(current);
+        free(current);
 return NULL;
 }
 head = current->next;
 // Update the last node's next pointer to maintain circular structure
 struct Node *last = head;
-while (last->next != current) {
-last = last->next;
+        while (last->next != current) {
+        last = last->next;
 }
-last->next = head;
+        last->next = head;
 } else {
-prev->next = current->next;
+        prev->next = current->next;
 }
-free(current);
+        free(current);
 return head;
 }
-prev = current;
-current = current->next;
+        prev = current;
+        current = current->next;
 } while (current != head);
 // Key not found
-printf("Key not found.\n");
+        printf("Key not found.\n");
 return head;
 }
 int main() {
