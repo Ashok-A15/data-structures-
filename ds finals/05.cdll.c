@@ -116,53 +116,53 @@ do {
       return -1;
 }
 int main() {
-struct Node *head = NULL;
-int choice, item, position, key, result;
-do {
-printf("\nMenu:\n");
-printf("1. Insert by order\n");
-printf("2. Delete by position\n");
-printf("3. Delete by key\n");
-printf("4. Search by position\n");
-printf("5. Display the list contents\n");
-printf("6. Exit\n");
-printf("Enter your choice: ");
-scanf("%d", &choice);
-switch (choice) {
+      struct Node *head = NULL;
+      int choice, item, position, key, result;
+      do {
+      printf("\nMenu:\n");
+      printf("1. Insert by order\n");
+      printf("2. Delete by position\n");
+      printf("3. Delete by key\n");
+      printf("4. Search by position\n");
+      printf("5. Display the list contents\n");
+      printf("6. Exit\n");
+      printf("Enter your choice: ");
+      scanf("%d", &choice);
+      switch (choice) {
 case 1:
-printf("Enter item to insert: ");
-scanf("%d", &item);
-head = insertByOrder(head, item);
-displayList(head);
-break;
+      printf("Enter item to insert: ");
+      scanf("%d", &item);
+      head = insertByOrder(head, item);
+      displayList(head);
+      break;
 case 2:
-printf("Enter position to delete: ");
-scanf("%d", &position);
-head = deleteByPosition(head, position);
-displayList(head);
-break;
+      printf("Enter position to delete: ");
+      scanf("%d", &position);
+      head = deleteByPosition(head, position);
+      displayList(head);
+      break;
 case 3:
-printf("Enter key to delete: ");
-scanf("%d", &key);
-head = deleteByKey(head, key);
-displayList(head);
-break;
+      printf("Enter key to delete: ");
+      scanf("%d", &key);
+      head = deleteByKey(head, key);
+      displayList(head);
+      break;
 case 4:
-printf("Enter position to search: ");
-scanf("%d", &position);
-result = searchByPosition(head, position);
-if (result != -1) {
-printf("Item at position %d: %d\n", position, result);
-}
-break;
+      printf("Enter position to search: ");
+      scanf("%d", &position);
+      result = searchByPosition(head, position);
+      if (result != -1) {
+      printf("Item at position %d: %d\n", position, result);
+      }
+      break;
 case 5:
-displayList(head);
-break;
+      displayList(head);
+      break;
 case 6:
-printf("Exiting program.\n");
-break;
-default:
-printf("Invalid choice. Please enter a valid option.\n");
+      printf("Exiting program.\n");
+      break;
+     default:
+                  printf("Invalid choice. Please enter a valid option.\n");
 }
 } while (choice != 6);
 // Free the memory allocated for the circular doubly linked list before exiting
