@@ -9,111 +9,111 @@ struct Node *next;
 // Function to display the circular doubly linked list
 void displayList(struct Node *head) {
       if (head == NULL) {
-printf("List is empty.\n");
-return;
+      printf("List is empty.\n");
+      return;
 }
-struct Node *current = head;
+      struct Node *current = head;
 do {
-printf("%d ", current->data);
-current = current->next;
+      printf("%d ", current->data);
+      current = current->next;
 } while (current != head);
-printf("\n");
+      printf("\n");
 }
 // Function to insert a node in order
 struct Node* insertByOrder(struct Node *head, int item) {
-struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
-newNode->data = item;
-if (head == NULL) {
-newNode->prev = newNode;
-newNode->next = newNode;
-return newNode;
+      struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+      newNode->data = item;
+      if (head == NULL) {
+      newNode->prev = newNode;
+      newNode->next = newNode;
+      return newNode;
 }
-struct Node *current = head;
+      struct Node *current = head;
 // Traverse the list to find the correct position to insert
-while (current->next != head && current->next->data < item) {
-current = current->next;
+      while (current->next != head && current->next->data < item) {
+      current = current->next;
 }
-// Insert the new node
-newNode->prev = current;
-newNode->next = current->next;
-current->next->prev = newNode;
-current->next = newNode;
-// Update head if needed
-if (item < head->data) {
-head = newNode;
+      // Insert the new node
+      newNode->prev = current;
+      newNode->next = current->next;
+      current->next->prev = newNode;
+      current->next = newNode;
+      // Update head if needed
+      if (item < head->data) {
+      head = newNode;
 }
 return head;
 }
 // Function to delete a node by position
 struct Node* deleteByPosition(struct Node *head, int position) {
-if (head == NULL) {
-printf("List is empty.\n");
-return NULL;
+      if (head == NULL) {
+      printf("List is empty.\n");
+      return NULL;
 }
-struct Node *current = head;
-// Traverse to the specified position
-for (int i = 0; i < position; i++) {
-current = current->next;
-// Check if the position is valid
-if (current == head) {
-printf("Invalid position.\n");
+      struct Node *current = head;
+      // Traverse to the specified position
+      for (int i = 0; i < position; i++) {
+      current = current->next;
+      // Check if the position is valid
+      if (current == head) {
+      printf("Invalid position.\n");
 return head;
 }
 }
-// Update pointers to remove the node
-current->prev->next = current->next;
-current->next->prev = current->prev;
-// Update head if needed
-if (current == head) {
-head = current->next;
+      // Update pointers to remove the node
+      current->prev->next = current->next;
+      current->next->prev = current->prev;
+      // Update head if needed
+      if (current == head) {
+      head = current->next;
 }
-free(current);
-return head;
+      free(current);
+      return head;
 }
 // Function to delete a node by key
 struct Node* deleteByKey(struct Node *head, int key) {
-if (head == NULL) {
-printf("List is empty.\n");
-return NULL;
+      if (head == NULL) {
+      printf("List is empty.\n");
+      return NULL;
 }
-struct Node *current = head;
-// Search for the key
+      struct Node *current = head;
+      // Search for the key
 do {
-if (current->data == key) {
-// Update pointers to remove the node
-current->prev->next = current->next;
-current->next->prev = current->prev;
-// Update head if needed
-if (current == head) {
-head = current->next;
+      if (current->data == key) {
+      // Update pointers to remove the node
+      current->prev->next = current->next;
+      current->next->prev = current->prev;
+      // Update head if needed
+      if (current == head) {
+      head = current->next;
 }
-free(current);
+      free(current);
+      return head;
+}
+      current = current->next;
+      } while (current != head);
+      // Key not found
+      printf("Key not found.\n");
 return head;
 }
-current = current->next;
-} while (current != head);
-// Key not found
-printf("Key not found.\n");
-return head;
+      // Function to search for an item by position
+      int searchByPosition(struct Node *head, int position) {
+      if (head == NULL) {
+      printf("List is empty.\n");
+      return -1;
 }
-// Function to search for an item by position
-int searchByPosition(struct Node *head, int position) {
-if (head == NULL) {
-printf("List is empty.\n");
-return -1;
-}
-struct Node *current = head;
-int currentPosition = 0;
+      struct Node *current = head;
+      int currentPosition = 0;
 do {
-if (currentPosition == position) {
-return current->data;
+      if (currentPosition == position) {
+      return current->data;
 }
-current = current->next;
-currentPosition++;
+      current = current->next;
+      currentPosition++;
 } while (current != head);
-// Invalid position
-printf("Invalid position.\n");
-return -1;
+      // Invalid position
+      printf("Invalid position.\n");
+      return -1;
 }
 int main() {
 struct Node *head = NULL;
