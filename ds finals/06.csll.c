@@ -7,9 +7,9 @@ struct Node *next;
 };
 // Function to display the circular linked list
 void displayList(struct Node *head) {
-if (head == NULL) {
-printf("List is empty.\n");
-return;
+  if (head == NULL) {
+  printf("List is empty.\n");
+  return;
 }
 struct Node *current = head;
 do {
