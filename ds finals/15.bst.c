@@ -27,48 +27,48 @@ inorderTraversal(root->right);
 }
 }
 void preorderTraversal(struct Node* root) {
-if (root != NULL) {
-printf("%d ", root->key);
-preorderTraversal(root->left);
-preorderTraversal(root->right);
+        if (root != NULL) {
+        printf("%d ", root->key);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
 }
 }
 void postorderTraversal(struct Node* root) {
-if (root != NULL) {
-postorderTraversal(root->left);
-postorderTraversal(root->right);
-printf("%d ", root->key);
+        if (root != NULL) {
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        printf("%d ", root->key);
 }
 }
 struct Node* searchNode(struct Node* root, int key) {
-if (root == NULL || root->key == key)
-return root;
-if (key < root->key)
-return searchNode(root->left, key);
-return searchNode(root->right, key);
+        if (root == NULL || root->key == key)
+        return root;
+        if (key < root->key)
+        return searchNode(root->left, key);
+        return searchNode(root->right, key);
 }
 struct Node* minValueNode(struct Node* node) {
-struct Node* current = node;
-while (current->left != NULL)
-current = current->left;
-return current;
+        struct Node* current = node;
+        while (current->left != NULL)
+        current = current->left;
+        return current;
 }
 struct Node* deleteNode(struct Node* root, int key) {
-if (root == NULL)
-return root;
-if (key < root->key)
-root->left = deleteNode(root->left, key);
-else if (key > root->key)
-root->right = deleteNode(root->right, key);
-else {
-if (root->left == NULL) {
-struct Node* temp = root->right;
-free(root);
-return temp;
-} else if (root->right == NULL) {
-struct Node* temp = root->left;
-free(root);
-return temp;
+        if (root == NULL)
+        return root;
+        if (key < root->key)
+        root->left = deleteNode(root->left, key);
+        else if (key > root->key)
+        root->right = deleteNode(root->right, key);
+        else {
+        if (root->left == NULL) {
+        struct Node* temp = root->right;
+        free(root);
+        return temp;
+        } else if (root->right == NULL) {
+        struct Node* temp = root->left;
+        free(root);
+        return temp;
 }
 struct Node* temp = minValueNode(root->right);
         root->key = temp->key;
