@@ -5,12 +5,6 @@
     char word[100],*ptr;
     printf("Enter the word\n");
     scanf("%s",word);
-   
- /*for(i=0;i,size;i++)
-{
-    scanf("d",&arr[i]);
-    
-}*/
 ptr=word;
 while((*ptr)!='\0')
 {
