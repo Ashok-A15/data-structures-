@@ -9,6 +9,7 @@
  /*for(i=0;i,size;i++)
 {
     scanf("d",&arr[i]);
+    
 }*/
 ptr=word;
 while((*ptr)!='\0')
