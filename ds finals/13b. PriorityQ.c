@@ -1,5 +1,3 @@
-
-//Ascending Priority Queue Dynamic
 #include <stdio.h>
 #include <stdlib.h>
 int size;
