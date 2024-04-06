@@ -5,6 +5,7 @@ int ne=0; //Initializing Number of Elements in Array
 //Function to read an Array
 void read(int *x)
 {
+  
     int i,n;
     printf("Enter The number of elements\n");
     scanf("%d",&n);
