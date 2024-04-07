@@ -17,7 +17,7 @@ void read(Time *T)
     printf("Enter the time in Hours:Minutes:Seconds : ");
     scanf("%d%d%d",&T->hr,&T->min,&T->sec);
 }
-//Function to display Time
+
 void disp(Time *T)
 {
     printf("%d:%d:%d",T->hr,T->min,T->sec);
