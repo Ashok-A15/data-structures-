@@ -22,7 +22,7 @@ void disp(Time *T)
 {
     printf("%d:%d:%d",T->hr,T->min,T->sec);
 }
-//Function to Update Time by 1 second
+
 void update(Time *T)
 {
     T->sec++;
