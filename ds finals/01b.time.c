@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-//TIME Structure containing 3 members
+
 struct TIME {
     int hr,min,sec;
 };
-//Type Defining struct TIME
+
 typedef struct TIME Time;
-//Function Prototypes
+
 void read(Time *);
 void disp(Time *);
 void update(Time *);
 void add(Time *, Time *, Time *);
-//Function to read Time
+
 void read(Time *T)
 {
     printf("Enter the time in Hours:Minutes:Seconds : ");
