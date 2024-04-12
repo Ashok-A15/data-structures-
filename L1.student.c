@@ -78,7 +78,7 @@ void average(Student *sp)
 
 void main()
 {
-  
+
     Student *sp=NULL;
    int size;
     printf("Enter the size : ");
