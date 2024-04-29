@@ -11,6 +11,7 @@ node* display(node *head, int size)
 {
     node *temp = head;
 
+    
     if (size == 0)
     {
         printf("Linked list empty\n");
