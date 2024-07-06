@@ -21,6 +21,7 @@ node* display(node *head, int size)
     printf("Linked list is--> ");
     while (temp != NULL)
     {
+        
         printf("%d->", temp->data);
         temp = temp->next;
         
