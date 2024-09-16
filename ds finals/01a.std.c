@@ -1,4 +1,6 @@
+
 #include <stdio.h>
+
 #include <stdlib.h>
 //N->Number Of Students
 int N,size,i,j;
