@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <ctype.h>
-
 char stack[20];
 int top = -1;
 
