@@ -6,6 +6,7 @@ typedef struct Time
 }Time;
 
 
+
 void read(Time* T){
     printf("Enter the hours, minutes and seconds: \n");
     scanf("%d%d%d",&T->hr,&T->min,&T->sec);
