@@ -1,7 +1,6 @@
 
 
 //array operations
-
 #include<stdio.h>
 #include<stdlib.h>
 
