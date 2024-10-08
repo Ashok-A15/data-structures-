@@ -9,6 +9,7 @@ typedef struct node
     struct node *next;
 } node;
 
+
 node* display(node *head, int size)
 {
     node *temp = head;
