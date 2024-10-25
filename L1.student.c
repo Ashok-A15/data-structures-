@@ -14,6 +14,7 @@ typedef struct Student
 void read(Student *sp, int* size)
 {
     int i,j;
+   
     printf("Enter the number of students : ");
     scanf("%d",&n);
     if(n>(*size))
