@@ -20,6 +20,7 @@ node* display(node *head, int size)
         printf("Linked list empty\n");
         return head;
     }
+    
 
     printf("Linked list is--> ");
     while (temp != NULL)
