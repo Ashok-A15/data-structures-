@@ -5,7 +5,8 @@
 int n=0;
 typedef struct Student
 {
-   
+
+
     int regno;
     char name[30];
     int marks[3];
