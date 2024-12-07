@@ -10,6 +10,7 @@ struct Stack{
 void push(int X)
 {
     //Checking if Stack is Full
+    
     if(S.top==size-1)
     {
         printf("Stack Overflow\n");
